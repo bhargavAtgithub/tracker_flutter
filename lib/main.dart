@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tracker_flutter/app/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:tracker_flutter/services/auth.dart';
 import 'firebase_options.dart';
 
 // Define entry point of our application
@@ -22,7 +23,9 @@ class TrackerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: const LandingPage(),
+      home: LandingPage(
+        auth: Auth(),
+      ),
     );
   }
 }

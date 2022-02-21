@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tracker_flutter/app/sign_in/sign_in_button.dart';
 import 'package:tracker_flutter/app/sign_in/social_sign_in_button.dart';
+import 'package:tracker_flutter/services/auth.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key, required this.onSignIn}) : super(key: key);
-
+  const SignInPage({Key? key, required this.auth, required this.onSignIn})
+      : super(key: key);
+  final AuthBase auth;
   final void Function(User?) onSignIn;
 
   @override
@@ -16,21 +18,22 @@ class SignInPage extends StatelessWidget {
       //   title: const Text('Time Tracker'),
       //   elevation: 0,
       // ),
-      body: BuildContent(onSignIn: onSignIn),
+      body: BuildContent(auth: auth, onSignIn: onSignIn),
     );
   }
 }
 
 class BuildContent extends StatelessWidget {
-  const BuildContent({Key? key, required this.onSignIn}) : super(key: key);
-
+  const BuildContent({Key? key, required this.auth, required this.onSignIn})
+      : super(key: key);
+  final AuthBase auth;
   final Function(User?) onSignIn;
 
   Future<void> _signInAnonymously() async {
-    final UserCredential userCredentials;
+    final User? user;
     try {
-      userCredentials = await FirebaseAuth.instance.signInAnonymously();
-      onSignIn(userCredentials.user);
+      user = await auth.signInAnonymously();
+      onSignIn(user);
     } catch (err) {
       // ignore: avoid_print
       print(err.toString());
@@ -100,7 +103,7 @@ class BuildContent extends StatelessWidget {
           SignInButton(
             text: 'Go anonymous',
             textColor: Colors.white,
-            color: Colors.black,
+            color: Colors.black54,
             onPressed: _signInAnonymously,
           ),
         ],
