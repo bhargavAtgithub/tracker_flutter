@@ -1,14 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tracker_flutter/app/sign_in/sign_in_button.dart';
 import 'package:tracker_flutter/app/sign_in/social_sign_in_button.dart';
 import 'package:tracker_flutter/services/auth.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key, required this.auth, required this.onSignIn})
-      : super(key: key);
+  const SignInPage({Key? key, required this.auth}) : super(key: key);
   final AuthBase auth;
-  final void Function(User?) onSignIn;
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +15,36 @@ class SignInPage extends StatelessWidget {
       //   title: const Text('Time Tracker'),
       //   elevation: 0,
       // ),
-      body: BuildContent(auth: auth, onSignIn: onSignIn),
+      body: BuildContent(auth: auth),
     );
   }
 }
 
 class BuildContent extends StatelessWidget {
-  const BuildContent({Key? key, required this.auth, required this.onSignIn})
-      : super(key: key);
+  const BuildContent({Key? key, required this.auth}) : super(key: key);
   final AuthBase auth;
-  final Function(User?) onSignIn;
 
   Future<void> _signInAnonymously() async {
-    final User? user;
     try {
-      user = await auth.signInAnonymously();
-      onSignIn(user);
+      await auth.signInAnonymously();
+    } catch (err) {
+      // ignore: avoid_print
+      print(err.toString());
+    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    try {
+      await auth.signInWithGoogle();
+    } catch (err) {
+      // ignore: avoid_print
+      print(err.toString());
+    }
+  }
+
+  Future<void> _signInWithFacebook() async {
+    try {
+      await auth.signInWithFacebook();
     } catch (err) {
       // ignore: avoid_print
       print(err.toString());
@@ -65,7 +76,7 @@ class BuildContent extends StatelessWidget {
             assetName: 'images/google-logo.png',
             text: 'Sign in with google',
             textColor: Colors.black87,
-            onPressed: () {},
+            onPressed: _signInWithGoogle,
           ),
           const SizedBox(
             height: 8.0,
@@ -75,7 +86,7 @@ class BuildContent extends StatelessWidget {
             text: 'Sign in with meta',
             textColor: Colors.white,
             color: const Color.fromARGB(255, 100, 140, 248),
-            onPressed: () {},
+            onPressed: _signInWithFacebook,
           ),
           const SizedBox(
             height: 8.0,

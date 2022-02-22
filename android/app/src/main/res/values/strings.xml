@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="app_name">Tracker</string>
+    <string name="facebook_app_id">1031168077516302</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">1f02bd644b3552a64c63f5cc6f3d4225</string>
+</resources>
