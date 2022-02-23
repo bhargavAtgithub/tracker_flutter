@@ -13,7 +13,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Widget child;
   final Color color;
   final double borderRadius;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double height;
 
   @override
@@ -25,6 +25,7 @@ class CustomElevatedButton extends StatelessWidget {
         onPressed: onPressed,
         child: child,
         style: ButtonStyle(
+          // elevation: MaterialStateProperty.all(3.0),
           backgroundColor: MaterialStateProperty.all<Color>(color),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
