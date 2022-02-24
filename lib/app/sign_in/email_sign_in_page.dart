@@ -19,16 +19,18 @@ class EmailSignInPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Card(
-          child: EmailSignInForm(
-            auth: auth,
-          ),
-          elevation: 8,
-          shadowColor: Colors.teal[400],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Card(
+            child: EmailSignInForm(
+              auth: auth,
+            ),
+            elevation: 8,
+            // shadowColor: Colors.teal[400],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
           ),
         ),
       ),
