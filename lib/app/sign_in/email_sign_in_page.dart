@@ -5,10 +5,7 @@ import 'package:tracker_flutter/services/auth.dart';
 class EmailSignInPage extends StatelessWidget {
   const EmailSignInPage({
     Key? key,
-    required this.auth,
   }) : super(key: key);
-
-  final AuthBase auth;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +20,7 @@ class EmailSignInPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Card(
-            child: EmailSignInForm(
-              auth: auth,
-            ),
+            child: EmailSignInForm(),
             elevation: 8,
             // shadowColor: Colors.teal[400],
             shape: RoundedRectangleBorder(
