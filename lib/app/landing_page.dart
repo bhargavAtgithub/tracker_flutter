@@ -18,9 +18,9 @@ class LandingPage extends StatelessWidget {
           final User? user = snapshot.data;
 
           if (user == null) {
-            return SignInPage();
+            return const SignInPage();
           }
-          return HomePage();
+          return const HomePage();
         }
         return const Scaffold(
           body: Center(child: CircularProgressIndicator()),
