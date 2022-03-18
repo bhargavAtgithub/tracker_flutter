@@ -42,7 +42,7 @@ class Auth implements AuthBase {
         return userCredential.user;
       } else {
         throw FirebaseAuthException(
-            code: 'ERROR_MISSIN_GOOGLE_ID_TOKEN',
+            code: 'ERROR_MISSING_GOOGLE_ID_TOKEN',
             message: 'Missing google Id Token');
       }
     } else {

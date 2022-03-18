@@ -18,7 +18,7 @@ class LandingPage extends StatelessWidget {
           final User? user = snapshot.data;
 
           if (user == null) {
-            return const SignInPage();
+            return SignInPage.create(context);
           }
           return const HomePage();
         }
