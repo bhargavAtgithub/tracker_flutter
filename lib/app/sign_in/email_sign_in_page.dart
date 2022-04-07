@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tracker_flutter/app/sign_in/email_sign_in_form_bloc_based.dart';
-import 'package:tracker_flutter/app/sign_in/email_sign_in_form_stateful.dart';
-import 'package:tracker_flutter/services/auth.dart';
 
 class EmailSignInPage extends StatelessWidget {
   const EmailSignInPage({

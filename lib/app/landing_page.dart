@@ -6,7 +6,7 @@ import 'package:tracker_flutter/app/sign_in/sign_in_page.dart';
 import 'package:tracker_flutter/services/auth.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  const  LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

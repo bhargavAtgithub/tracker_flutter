@@ -9,7 +9,7 @@ import 'package:tracker_flutter/services/auth.dart';
 import 'package:tracker_flutter/widgets/show_exception_alert_dialog.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key, required this.bloc}) : super(key: key);
+  const  SignInPage({Key? key, required this.bloc}) : super(key: key);
 
   final SignInBloc bloc;
 
